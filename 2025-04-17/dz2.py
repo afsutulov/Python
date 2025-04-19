@@ -40,17 +40,9 @@ else:
 val = Num('\nВведите номер месяца')
 
 match val:
-    case 1: print(f'Winter')
-    case 2: print(f'Winter')
-    case 3: print(f'Spring')
-    case 4: print(f'Spring')
-    case 5: print(f'Spring')
-    case 6: print(f'Summer')
-    case 7: print(f'Summer')
-    case 8: print(f'Summer')
-    case 9: print(f'Autumn')
-    case 10: print(f'Autumn')
-    case 11: print(f'Autumn')
-    case 12: print(f'Winter')
+    case 1 | 2 | 12: print(f'Winter')
+    case 3 | 4 | 5: print(f'Spring')
+    case 6 | 7 | 8: print(f'Summer')
+    case 9 | 10 | 11: print(f'Autumn')
     case _: print(f'Введен некорректный месяц!')
 
