@@ -33,9 +33,8 @@ while True:
 val = Num('\nВведите номер месяца')
 
 match val:
-    case 1 | 2 | 12: print(f'Winter')
-    case 3 | 4 | 5: print(f'Spring')
-    case 6 | 7 | 8: print(f'Summer')
-    case 9 | 10 | 11: print(f'Autumn')
+    case 1 | 2 | 12: print('Winter')
+    case 3 | 4 | 5: print('Spring')
+    case 6 | 7 | 8: print('Summer')
+    case 9 | 10 | 11: print('Autumn')
     case _: print(f'Введен некорректный месяц!')
-
