@@ -17,10 +17,10 @@ def Num(txt):
 val = str(Num('Введите шестизначное число'))
 
 if len(val) == 6:
-  if int(val[0]) * int(val[1]) * int(val[2]) == int(val[3]) * int(val[4]) * int(val[5]):
-     print('Число счастливое!')
-  else:
-     print('Число несчастливое!')
+   if int(val[0]) * int(val[1]) * int(val[2]) == int(val[3]) * int(val[4]) * int(val[5]):
+      print('Число счастливое!')
+   else:
+      print('Число несчастливое!')
 else:
   print('Введено не шестизначное число!')
 
