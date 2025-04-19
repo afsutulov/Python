@@ -2,14 +2,10 @@
 
 # Функция ввода числа с проверкой
 def Num(txt):
-    Flag = True
-    while Flag:
+    while True:
         _ = input(f'{txt}: ')
-        if _.isnumeric():
-           Flag = False
-           return int(_)
-        else:
-           print('Ошибка: Введенные данные не содержат чило!\n')
+        if _.isnumeric(): return int(_)
+        else: print('Ошибка: Введенные данные не содержат чило!\n')
 
 
 # Задание 1
