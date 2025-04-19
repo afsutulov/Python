@@ -9,24 +9,24 @@ def Num(txt):
 
 
 # Задание 1
-val = str(Num('Введите шестизначное число'))
-
-if len(val) == 6:
-   if int(val[0]) * int(val[1]) * int(val[2]) == int(val[3]) * int(val[4]) * int(val[5]):
-      print('Число счастливое!')
+while True:
+   val = str(Num('Введите шестизначное число'))
+   if len(val) == 6:
+      if int(val[0]) * int(val[1]) * int(val[2]) == int(val[3]) * int(val[4]) * int(val[5]): print('Число счастливое!')
+      else: print('Число несчастливое!')
+      break
    else:
-      print('Число несчастливое!')
-else:
-   print('Введено не шестизначное число!')
+      print('Введено не шестизначное число!\n')
 
 
 # Задание 2
-val = str(Num('\nВведите шестизначное число'))
-
-if len(val) == 6:
-   print(f'Результат: {val[5]}{val[4]}{val[2]}{val[3]}{val[1]}{val[0]}')
-else:
-   print('Введено не шестизначное число!')
+while True:
+   val = str(Num('\nВведите шестизначное число'))
+   if len(val) == 6:
+      print(f'Результат: {val[5]}{val[4]}{val[2]}{val[3]}{val[1]}{val[0]}')
+      break
+   else:
+      print('Введено не шестизначное число!\n')
 
 
 # Задание 3
