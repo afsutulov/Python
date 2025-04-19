@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 
 #sum = 0
 
