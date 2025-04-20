@@ -38,6 +38,6 @@ while True:
       case 6 | 7 | 8: print('Summer')
       case 9 | 10 | 11: print('Autumn')
       case _: 
-         print(f'Введен некорректный месяц!')
+         print(f'Ошибка: Введен некорректный месяц!')
          continue
    break
