@@ -30,10 +30,8 @@ while True:
 
 
 # Задание 3
-Flag = True
-while Flag:
+while True:
    val = Num('\nВведите номер месяца')
-   Flag = False
    match val:
       case 1 | 2 | 12: print('Winter')
       case 3 | 4 | 5: print('Spring')
@@ -41,4 +39,5 @@ while Flag:
       case 9 | 10 | 11: print('Autumn')
       case _: 
          print(f'Введен некорректный месяц!')
-         Flag = True
+         continue
+   break
