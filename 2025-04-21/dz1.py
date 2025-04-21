@@ -41,8 +41,9 @@ while True:
     else: print('Введены некорректные данные, повторите попытку\n')
 
 for _ in range(val[0], val[1] + 1):
-   if _ == val[2]: print(f'!{_}!', end = '')
-   else:  print(_, end = '')
+   if _ == val[2]: print(f' !{_}!', end = '')
+   else:  print(f' {_}', end = '')
+print('.')
 
 # Задание 4
 print('\n\nДобро пожаловать в игру Угадай число')
