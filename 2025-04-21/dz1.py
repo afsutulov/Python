@@ -19,7 +19,7 @@ while True:
    else: print('Введите число меньше 10\n')
 
 for _ in range(10):
-    print(f'{val[0]} * {_} = {val[0] * _}')
+    print(f'{val[0]} * {_ + 1} = {val[0] * (_ + 1)}')
 print('\n\n')
 
 # Задание 2
