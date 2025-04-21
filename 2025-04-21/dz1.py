@@ -56,15 +56,15 @@ i = 0
 user_time = datetime.datetime.now()
 
 while True:
-   val = Num('Введите предполагаемое число')
-   if val == 0: break
+   val[0] = Num('Введите предполагаемое число')
+   if val[0] == 0: break
    i += 1
-   if val == random_value:
-      print('Вы угадали число! Поздравляю!\n')
+   if val[0] == random_value:
+      print(f'Вы угадали число {val[0]}! Поздравляю!\n')
       break
-   elif val < random_value:
+   elif val[0] < random_value:
       print('Ваше число меньше загаданного\n')
-   elif val > random_value:
+   elif val[0] > random_value:
       print('Ваше число больше загаданного\n')
 
 print('*' * 11)
