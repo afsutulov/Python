@@ -25,23 +25,18 @@ for _ in range(val[1]):
 # Задание 3
 val[0] = Num('\nВведите размер стороны квадрата')
 print('Результат:')
-for _ in range(val[0]):
-   if _ == 0 or _ == val[0] -1: print('*' * val[0])
-   else:
-      for i in range(val[0]):
-          if i == 0 or i == val[0] -1: print('*', end = '')
-          else: print(' ', end = '')
-      print('')
+for i in range(val[0]):
+    for j in range(val[0]):
+        if i == 0 or j == 0 or i == val[0] - 1 or j == val[0] - 1: print('*', end = '')
+        else: print(' ', end = '')
+    print('')
 
 # Задание 4
 val[0] = Num('\nВведите ширину прямоугольника')
 val[1] = Num('Введите высоту прямоугольника')
 print('Результат:')
-for _ in range(val[1]):
-   if _ == 0 or _ == val[1] -1: print('*' * val[0])
-   else:
-      for i in range(val[0]):
-          if i == 0 or i == val[0] -1: print('*', end = '')
-          else: print(' ', end = '')
-      print('')
-
+for i in range(val[1]):
+    for j in range(val[0]):
+        if i == 0 or j == 0 or i == val[1] - 1 or j == val[0] - 1: print('*', end = '')
+        else: print(' ', end = '')
+    print('')
