@@ -2,21 +2,20 @@ package main
 
 import (
     "fmt"
-    "unicode"
     "strconv"
 )
 
 // Функция ввоад числа с проверкой
-func Num(txt string) int {
+func Num(txt string, size int) int {
     var x string
     for {
-        fmt.Print(txt, ": ")
+        fmt.Printf("%s: ", txt)
         fmt.Scanln(&x)
-        Flag := true
-        for _, char := range x {
-            if !unicode.IsDigit(char) { Flag = false; break }
-        }
-        if Flag { y, _ := strconv.Atoi(x); return y } else { fmt.Println("Ошибка: Введенные данные не содержат чило!\n") }
+        if size == 0 || len(x) == size {
+           y, err := strconv.Atoi(x)
+           if err != nil { fmt.Println("Ошибка: Введенные данные не содержат чило!\n"); continue }
+           return y
+        } else { fmt.Printf("Ошибка: Число не %d значное!!\n", size) }
     }
 }
 
@@ -26,31 +25,31 @@ func main() {
     // Задание 1
     fmt.Println("ЗАДАНИЕ 1: Пользователь вводит с клавиатуры три цифры. Необходимо создать число, содержащее эти цифры")
     for i := 0; i < len(val); i++ {
-        val[i] = Num("Введите число " + strconv.Itoa(i + 1))
+        val[i] = Num("Введите число " + strconv.Itoa(i + 1), 0)
     }
     fmt.Printf("Результат: %d%d%d\n\n", val[0], val[1], val[2])
 
     // Задание 2
     fmt.Println("ЗАДАНИЕ 2: Пользователь вводит с клавиатуры число, состоящее из четырех цифр. Требуется найти произведение цифр.")
-    for i := 0; i < len(val); i++ {
-        val[i] = Num("Введите число " + strconv.Itoa(i + 1))
-    }
-    fmt.Printf("Результат: %d\n\n", val[0] * val[1] * val[2])
+    txt := strconv.Itoa(Num("Введите число", 4))
+    y := 1
+    for _, i := range txt { p, _ := strconv.Atoi(string(i)); y *= p }
+    fmt.Printf("Результат: %d\n\n", y)
 
     // Задание 3
     fmt.Println("ЗАДАНИЕ 3: Пользователь вводит с клавиатуры количество метров. Требуется вывести результат перевода метров в сантиметры, дециметры, миллиметры, мили.")
-    val[0] = Num("Введите количество метров")
+    val[0] = Num("Введите количество метров", 0)
     fmt.Printf("Результат:\n\tСантиметров: %d}\n\tДециметров: %d\n\tМиллиметров: %d\n\tМиль: %f\n\n", val[0] * 100, val[0] * 10, val[0] * 1000, float64(val[0]) * 0.000621)
 
     // Задание 4
     fmt.Println("ЗАДАНИЕ4: Напишите программу, вычисляющую площадь треугольника. Пользователь с клавиатуры вводит размер основания треугольника и размер высоты.")
-    val[0] = Num("Введите размер основания треугольника")
-    val[1] = Num("Введите размер высоты треугольника")
+    val[0] = Num("Введите размер основания треугольника", 0)
+    val[1] = Num("Введите размер высоты треугольника", 0)
     fmt.Printf("Площадь треугольника: %f\n\n", float64(val[0] * val[1]) / 2)
 
     // Задание 5
     fmt.Println("ЗАДАНИЕ5: Пользователь с клавиатуры вводит четырёхзначное число. Необходимо перевернуть число и отобразить результат.")
-    txt := strconv.Itoa(Num("Введите число"))
+    txt = strconv.Itoa(Num("Введите число", 4))
     result := ""
     for _, i := range txt {
         result = string(i) + result
