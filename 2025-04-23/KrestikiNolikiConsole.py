@@ -3,6 +3,7 @@
 board = [' '] * 9 # игровая доска
 player = 'X' # Ход игрока
 game_running = True # Условие для игры
+winner = None
 winList = [[0,1,2],[3,4,5],[6,7,8],
            [0,3,6],[1,4,7],[2,5,8],
            [0,4,8],[2,4,6]] # Список комбанаций для победы
@@ -35,6 +36,7 @@ while game_running:
     # Проверка на победителя
     for combo in winList:
         if board[combo[0]] == board[combo[1]] == board[combo[2]] != ' ':
+           winner = player
            game_running = False
            break
     # Проверка на ничью
@@ -46,5 +48,5 @@ while game_running:
 # Вывести финальную доску
 print('\nФинальная доска')
 Doska(True)
-print(f'Победил игрок: {player}!!!')
+if winner: print(f'Победил игрок: {winner}!!!')
 else: print('Игра закончилась ничьей!')
