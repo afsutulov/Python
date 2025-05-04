@@ -51,11 +51,9 @@ func  Zad6(txt string) int {
 }
 
 func Zad7(txt string) bool {
-    runes := []rune(txt)
-    for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-        runes[i], runes[j] = runes[j], runes[i]
-    }
-    if txt == string(runes) { return true } else { return false }
+    res := ""
+    for _, i:= range txt { res = string(i) + res }
+    return res == txt
 }
 
 func main() {
