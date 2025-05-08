@@ -11,7 +11,7 @@ def Num(txt, n1, n2):
 
 def Zad1(a, b):
     print('\n\tСправочник:')
-    for _ in range(len(a)): print (f'ID = {a[_]:3}\tPHONE = {b[_]}')
+    for _ in range(len(a)): print (f'ID = {a[_]:<4}PHONE = {b[_]}')
 
 def Zad2(a, b):
     print('\n\tКниги:')

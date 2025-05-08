@@ -31,8 +31,7 @@ mass[Num('Какую оценку заменить (1  - 10)', 1, 10) -1] = Num(
 print(f'Новые Оценки: {mass}\nСредний бал: {sum(mass) / len(mass)}. ', end = '')
 if sum(mass) / len(mass) > 10.7: print('Стипендия будет!')
 else: print('Стипендии не будет :(')
-mass.sort()
-print(f'Отсортированные оценки: {mass}')
+print(f'Отсортированные оценки: {Zad1(mass, len(mass))}')
 
 # Задание 3
 rnd = [random.randint(-100, 100) for i in range(30)]
