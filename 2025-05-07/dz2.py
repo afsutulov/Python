@@ -4,18 +4,17 @@ import random
 
 # Функция ввода числа с проверкой
 def Num(txt, n1, n2):
-    if n1 > n2: n1, n2 = n2, n1
     _ = input(f'{txt}: ')
     if _.isnumeric() and n1 <= int(_) <=n2: return int(_)
     else: print(f'Ошибка ввода! Необходимо ввести число от {n1} до {n2}!\n'); return Num(txt, n1, n2)
 
 def Zad1(a, b):
     print('\n\tСправочник:')
-    for _ in range(len(a)): print (f'ID = {a[_]:<4}PHONE = {b[_]}')
+    for _ in range(len(a)): print(f'ID = {a[_]:<4}PHONE = {b[_]}')
 
 def Zad2(a, b):
     print('\n\tКниги:')
-    for _ in range(len(a)): print (f'{a[_]:20}\tГод: {b[_]}')
+    for _ in range(len(a)): print(f'{a[_]:20}\tГод: {b[_]}')
 
 def Sort(a, b, Flag):
     for i in range(len(a)):
