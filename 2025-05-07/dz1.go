@@ -44,7 +44,7 @@ func main () {
     fmt.Printf("Оценки: %d\n", mass)
     mass[Num("Какую оценку заменить (1  - 10)", 1, 10) -1] = Num("Введите новую оценку", 1, 12)
     fmt.Printf("Новые Оценки: %d\nСредний бал: %.2f. ", mass, float32(Summ(mass)) / float32(len(mass)))
-    if float64(Summ(mass) / len(mass)) > 10.7 { fmt.Println("Стипендия будет!") } else { fmt.Println("Стипендии не будет :(") }
+    if float32(Summ(mass)) / float32(len(mass)) > 10.7 { fmt.Println("Стипендия будет!") } else { fmt.Println("Стипендии не будет :(") }
     fmt.Printf("Отсортированные оценки: %d\n", Sort(mass, len(mass)))
 
     // Задание 3
