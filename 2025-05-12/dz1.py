@@ -41,4 +41,4 @@ match Num('\nВарианты:\n\t1 - отсортировать по возра
     case 1: mass.sort()
     case 2: mass.sort(reverse=True)
 print(f'\nОтсортированный список: {mass}\n')
-print(f'\nИндексы: {Find(Num("Введите число для поиска", 0, 100))}')
+print(f'\nИндексы: {Find(Num("Введите число для поиска", 0, 10))}')
