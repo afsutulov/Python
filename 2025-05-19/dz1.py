@@ -54,10 +54,6 @@ with open('dz_result7.txt', 'w') as f:
 with open('text.txt', 'r') as f: buffer = f.read()
 print(f'Задание 9: {len(buffer)}')
 
-# Задание 9
-with open('text.txt', 'r') as f: buffer = f.read()
-print(f'Задание 9: {len(buffer)}')
-
 # Задание 10
 mass = []
 with open('text.txt', 'r') as f:
