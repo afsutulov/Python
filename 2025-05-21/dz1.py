@@ -27,6 +27,7 @@ for x in range(len(txt)):
 print(f'Результат: {txt2}\n\n')
 
 #Задание 3
+print('ЗАДАНИЕ 3:')
 mass = []
 while True:
     _ = input('Введите название файла, либо введите quit для выхода: ')
@@ -40,7 +41,7 @@ with open('dz1_result3.txt', 'w') as f1:
                 f1.write(data)
 
 #Задание 4
-print('ЗАДАНИЕ 4:')
+print('\nЗАДАНИЕ 4:')
 mass = []
 while True:
     _ = input('Введите название файла, либо введите quit для выхода: ')
@@ -64,4 +65,3 @@ else:
             if not i in res[_]: Flag = False
         if Flag: res2 += i
 with open('dz1_result4.txt', 'w') as f: f.write(res2)
-
