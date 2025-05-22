@@ -15,14 +15,20 @@ print('ЗАДАНИЕ 2:')
 code = {'a':'а', 'b':'б', 'c':'с', 'd':'д', 'e':'е','f':'ф','g':'г','h':'х','i':'и','j':'ж','k':'к','l':'л','m':'м','n':'н','o':'о','p':'п','q':'ку','r':'ар','s':'с',
         't':'т','u':'ю','v':'в','w':'в','x':'кс','y':'е','z':'з','а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'j','з':'z','и':'i','й':'i','к':'k','л':'l',
         'м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ste','ч':'che','ш':'sh','щ':'sh','ь':'','ы':'i','ъ':'','э':'ie','ю':'yu','я':'ya'}
-_= input('Введите название файла для транслитерации: ')
-if os.path.exists(_):
-    with open(_, 'r') as f: data = f.read().lower()
-res = ''
-for _ in range(len(data)):
-    if data[_].isalpha(): res += code[data[_]]
-    else: res += data[_]
-with open('dz1_result2.txt', 'w') as f: f.write(res)
+
+mass1 = []
+mass2 = []
+with open('transl.txt', 'r') as f:
+    for _ in f:
+        t = _.replace('\n', '').split(':')
+        mass1.append(t[0])
+        mass2.append(t[1])
+txt = input('Введите стркоу: ')
+txt2 = ''
+for x in range(len(txt)):
+    if txt[x].isalpha(): txt2 += mass2[mass1.index(txt[x].lower())]
+    else: txt2 += txt[x]
+print(f'Результат: {txt2}\n\n')
 
 #Задание 3
 print('ЗАДАНИЕ 3:')
