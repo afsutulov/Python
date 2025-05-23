@@ -40,7 +40,6 @@ def SearchFamily():
     tmp = []
     for _ in data:
         if _['famaly'] == f: print(f'Фамилия: {_["famaly"]:<20}Имя: {_["name"]:<20}\tВозраст: {_["age"]}'); tmp.append(_)
-    print()
     if len(tmp) != 0: SaveDataFile(tmp)
 
 # Функция поиска сотрудников по возрасту
@@ -50,7 +49,6 @@ def SearchAge():
     tmp = []
     for _ in data:
         if _['age'] == f: print(f'Фамилия: {_["famaly"]:<20}Имя: {_["name"]:<20}Возраст: {_["age"]}'); tmp.append(_)
-    print()
     if len(tmp) != 0: SaveDataFile(tmp)
 
 # Функция поиска сотрудников по первой букве фамилии
