@@ -40,7 +40,7 @@ class Auto:
         self.manufac = input(f"Введите {self.Manufac}: ")
         self.volume = input(f"Введите {self.Volume}: ")
         self.color = input(f"Введите {self.Color}: ")
-        if self.Flag != 1: self.price = Num(f"Введите {self.Price}", 0, 10000000)
+        if self.Flag != 0: self.price = Num(f"Введите {self.Price}", 0, 10000000)
 
     def Change(self):
         print(f"ЧТО ИЗМЕНИТЬ:\n\t1. {self.Name}\n\t2. {self.Year}\n\t3. {self.Manufac}\n\t4. {self.Volume}\n\t5. {self.Color}", end = "")
