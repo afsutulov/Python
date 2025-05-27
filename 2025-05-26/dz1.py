@@ -15,7 +15,7 @@ class Auto:
         self.manufac = manufac
         self.Manufac = "Производитель"
         self.volume = volume
-        self.Volume = "Обхем двигателя"
+        self.Volume = "Объем двигателя"
         self.color = color
         self.Color = "Цвет"
         self.price = price
