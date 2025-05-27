@@ -7,7 +7,7 @@ def Num(txt, n1, n2):
 
 class Auto:
     def __init__(self, name, year, manufac, volume, color, price):
-        self.Flag = 1
+        self.Flag = "АВТОМОБИЛЬ"
         self.name = name
         self.Name = "Название автомобиля"
         self.year = year
@@ -23,15 +23,15 @@ class Auto:
 
     def Menu(self):
         while True:
-            match Num("ДЕЙСТВИЯ:\n\t1. Вывод данных\n\t2. Ввод данных\n\t3. Изменить данные\n\t0. Выход\n\nВаше действие", 0, 3):
+            match Num(f"ДЕЙСТВИЯ ({self.Flag}):\n\t1. Вывод данных\n\t2. Ввод данных\n\t3. Изменить данные\n\t0. Выход\n\nВаше действие", 0, 3):
                 case 1: self.Print()
                 case 2: self.Input()
                 case 3: self.Change()
                 case 0: break
 
     def Print(self):
-        print(f"ДАННЫЕ:\n\t{self.Name}: {self.name}\n\t{self.Year}: {self.year}\n\t{self.Manufac}: {self.manufac}\n\t{self.Volume}: {self.volume}\n\t{self.Color}: {self.color}")
-        if self.Flag != 0: print(f"\t{self.Price}: {self.price}\n")
+        print(f"ДАННЫЕ ({self.Flag}):\n\t{self.Name}: {self.name}\n\t{self.Year}: {self.year}\n\t{self.Manufac}: {self.manufac}\n\t{self.Volume}: {self.volume}\n\t{self.Color}: {self.color}")
+        if self.Flag != "СТАДИОН": print(f"\t{self.Price}: {self.price}\n")
         else: print("\n")
 
     def Input(self):
@@ -40,11 +40,11 @@ class Auto:
         self.manufac = input(f"Введите {self.Manufac}: ")
         self.volume = input(f"Введите {self.Volume}: ")
         self.color = input(f"Введите {self.Color}: ")
-        if self.Flag != 0: self.price = Num(f"Введите {self.Price}", 0, 10000000)
+        if self.Flag != "СТАДИОН": self.price = Num(f"Введите {self.Price}", 0, 10000000)
 
     def Change(self):
-        print(f"ЧТО ИЗМЕНИТЬ:\n\t1. {self.Name}\n\t2. {self.Year}\n\t3. {self.Manufac}\n\t4. {self.Volume}\n\t5. {self.Color}", end = "")
-        if self.Flag != 0: print(f"\n\t6. {self.Price}", end = "")
+        print(f"ЧТО ИЗМЕНИТЬ {self.Flag}:\n\t1. {self.Name}\n\t2. {self.Year}\n\t3. {self.Manufac}\n\t4. {self.Volume}\n\t5. {self.Color}", end = "")
+        if self.Flag != "СТАДИОН": print(f"\n\t6. {self.Price}", end = "")
         match Num(f"\n\t0. Без изменений\n\nВаше действие", 0, 6):
             case 1: self.name = input(f"Введите {self.Name}: ")
             case 2: self.year = Num(f"Введите {self.Year}", 1900, 2025)
@@ -52,17 +52,17 @@ class Auto:
             case 4: self.volume = input(f"Введите {self.Volume}: ")
             case 5: self.color = input(f"Введите {self.Color}: ")
             case 6:
-                if self.Flag != 0: self.price = Num(f"Введите {self.Price}", 0, 10000000)
+                if self.Flag != "СТАДИОН": self.price = Num(f"Введите {self.Price}", 0, 10000000)
 
 class Book(Auto):
     def __init__(self, name, year, manufac, janr, autor, price):
-        self.Flag = 1
+        self.Flag = "КНИГА"
         self.name = name
         self.Name = "Название книги"
         self.year = year
         self.Year = "Год выпуска"
-        self.manufac = janr
-        self.Manufac = "Автор"
+        self.manufac = manufac
+        self.Manufac = "Издатель"
         self.volume = janr
         self.Volume = "Жанр"
         self.color = autor
@@ -72,7 +72,7 @@ class Book(Auto):
 
 class Stadion(Auto):
     def __init__(self, name, year, country, city, peoples):
-        self.Flag = 0
+        self.Flag = "СТАДИОН"
         self.name = name
         self.Name = "Название стадиона"
         self.year = year
