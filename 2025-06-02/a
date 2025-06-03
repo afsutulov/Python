@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+class Kolesa:
+    def __init__(self, razm_koles):
+        self.razm_koles = razm_koles
+
+    def __str__(self):
+        return f"Размер колес: {self.razm_koles}\""
+
+class Dvigatel:
+    def __init__(self, dvigatel):
+        self.dvigatel = dvigatel
+
+    def __str__(self):
+        return f"Объем двигателя: {self.dvigatel}"
+
+class Dveri:
+    def __init__(self, dvery):
+        self.dvery = dvery
+
+    def __str__(self):
+        return f"Количество дверей: {self.dvery}"
+
+class Avto(Kolesa, Dvigatel, Dveri):
+    def __init__(self, marka, razm_koles, dvigatel, dvery):
+        self.marka = marka
+        Kolesa.__init__(self, razm_koles)
+        Dvigatel.__init__(self, dvigatel)
+        Dveri.__init__(self, dvery)
+
+    def __str__(self):
+        return f"Марка автомобиля: {self.marka}\n{Kolesa(self.razm_koles)}\n{Dvigatel(self.dvigatel)}\n{Dveri(self.dvery)}"
+
+# Пример использования
+if __name__ == "__main__":
+    print(Avto("Lada", 15, 1.6, 5))
