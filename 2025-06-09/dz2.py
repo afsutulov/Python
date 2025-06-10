@@ -68,8 +68,8 @@ class Date:
          return abs((self.data - other.data).days)
 
     def __add__(self, other):
-        new_date = self.data + timedelta(days=other)
-        return new_date.strftime("%d.%m.%Y")
+        self.data += timedelta(days=other)
+        return self.data.strftime("%d.%m.%Y")
 
 def main():
     p1 = Number(10)
