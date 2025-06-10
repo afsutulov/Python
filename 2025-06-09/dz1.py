@@ -37,9 +37,6 @@ class FrequencyDisribution:
         print(f"Чаще всего встречающийся элемент: {collections.Counter(lst).most_common(1)[0][0]}")
 
 # Классы для Задания 3
-
-import matplotlib.pyplot as plt  
-
 class Correlation:
     @staticmethod
 
