@@ -30,21 +30,21 @@ class Pyatak:
             print(f"|\n{'-'*(5 * self.dln + 1)}")
 
     def is_solved(self): # Проверка победы по сравнению поля с отсортированным
-        y = self.pole.copy()
-        y.remove(0)
-        if y == sorted(y): self.print_board(); print("\033[32mВЫ ПОБЕДИЛИ!!\033[0m"); exit()
+        _ = self.pole.copy()
+        _.remove(0)
+        if _ == sorted(_): self.print_board(); print("\033[32mВЫ ПОБЕДИЛИ!!\033[0m"); exit()
 
     def move(self, x): # Функция хода
-        y = self.pole.index(0) # Определяем позицию пустой клетки
+        _ = self.pole.index(0) # Определяем позицию пустой клетки
         match x:
             case 1:
-                if y - self.dln >= 0: self.pole[y - self.dln], self.pole[y] = self.pole[y], self.pole[y - self.dln]
+                if _ - self.dln >= 0: self.pole[_ - self.dln], self.pole[_] = self.pole[_], self.pole[_ - self.dln]
             case 2:
-                if y + self.dln < len(self.pole): self.pole[y + self.dln], self.pole[y] = self.pole[y], self.pole[y + self.dln]
+                if _ + self.dln < len(self.pole): self.pole[_ + self.dln], self.pole[_] = self.pole[_], self.pole[_ + self.dln]
             case 3:
-                if y - 1 >= 0 and (y % self.dln != 0): self.pole[y - 1], self.pole[y] = self.pole[y], self.pole[y - 1]
+                if _ - 1 >= 0 and (_ % self.dln != 0): self.pole[_ - 1], self.pole[_] = self.pole[_], self.pole[_ - 1]
             case 4:
-                if y + 1 < len(self.pole) and ((y + 1) % self.dln != 0): self.pole[y + 1], self.pole[y] = self.pole[y], self.pole[y + 1]
+                if _ + 1 < len(self.pole) and ((_ + 1) % self.dln != 0): self.pole[_ + 1], self.pole[_] = self.pole[_], self.pole[_ + 1]
         self.is_solved()
 
     def play_game(self): # Функция игры
