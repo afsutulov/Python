@@ -3,7 +3,7 @@
 import random
 
 # Добавил возможность задать размер поря (переменная self.dln). По умолчанию поставил 5
-# Добавил выделение цветом пустой полиции и сообщениях об ошибках через ANSI. Плюс очистку экрана. Не уверен, что PyCham отразит правильно.
+# Добавил выделение цветом пустой позиции через ANSI. Плюс очистку экрана. Не уверен, что PyCham отразит правильно.
 # Управление кнопками не стал добавлять - в Win и Lin реализуется через разные модули. Получается конкретный гемморой.
 # Алгоритм автоматической игры реализуется с помощью алгоритма А* и эвристики Манхэттена
 
@@ -21,17 +21,13 @@ class Pyatak:
         if _.isnumeric() and n1 <= int(_) <= n2: return int(_)
         else: print(f'\u001b[31mОшибка ввода! Необходимо ввести число от {n1} до {n2}!\u001b[0m\n'); return self.num(txt, n1, n2)
 
-    def print_board(self): # Печатаем поле. Оно масштабируется в зависимости от размера поля
+    def print_board(self): # Печатаем игровое поле. Оно масштабируется в зависимости от размера поля
         print(f"\033[H\033[2JИГРА ПЯТНАШКИ!\n\n{'-'*(5 * self.dln + 1)}")
         for i in range(self.dln):
             for y in range(self.dln):
                 if self.pole[i * self.dln + y] != 0: print(f"|{self.pole[i * self.dln + y]:^4}", end = "")
                 else: print(f"|\033[47m\033[30m{' ':^4}\033[0m", end = "")
             print(f"|\n{'-'*(5 * self.dln + 1)}")
-
-    def error(self): # Сообщение об ошибке. Отдельная функция т.к. в связи с отчисткой экрана ждем нажатия Enter
-        print("\u001b[31mНеправильный ход\u001b[0m")
-        _ = input("\nНажмите Enter")
 
     def is_solved(self): # Проверка победы по сравнению поля с отсортированным
         y = self.pole.copy()
@@ -43,16 +39,12 @@ class Pyatak:
         match x:
             case 1:
                 if y - self.dln >= 0: self.pole[y - self.dln], self.pole[y] = self.pole[y], self.pole[y - self.dln]
-                else: self.error()
             case 2:
                 if y + self.dln < len(self.pole): self.pole[y + self.dln], self.pole[y] = self.pole[y], self.pole[y + self.dln]
-                else: self.error()
             case 3:
                 if y - 1 >= 0 and (y % self.dln != 0): self.pole[y - 1], self.pole[y] = self.pole[y], self.pole[y - 1]
-                else: self.error()
             case 4:
                 if y + 1 < len(self.pole) and ((y + 1) % self.dln != 0): self.pole[y + 1], self.pole[y] = self.pole[y], self.pole[y + 1]
-                else: self.error()
         self.is_solved()
 
     def play_game(self): # Функция игры
