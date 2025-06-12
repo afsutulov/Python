@@ -17,11 +17,8 @@ class Pyatak:
                 if not _ in self.pole: self.pole.append(_); break
 
     def Num(self, txt, n1, n2): # Функция ввода и проверки цифры в заданном диапазоне
-        self.txt = txt
-        self.n1 = n1
-        self.n2 = n2
-        _ = input(f'{self.txt}: ')
-        if _.isnumeric() and self.n1 <= int(_) <= self.n2: return int(_)
+        _ = input(f'{txt}: ')
+        if _.isnumeric() and n1 <= int(_) <= n2: return int(_)
         else: print(f'\u001b[31mОшибка ввода! Необходимо ввести число от {n1} до {n2}!\u001b[0m\n'); return self.Num(txt, n1, n2)
 
     def print_board(self): # Печатаем поле. Оно масштабируется в зависимости от размера поля
