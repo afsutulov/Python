@@ -16,10 +16,10 @@ class Pyatak:
                 _ = random.randint(0, self.dln * self.dln - 1)
                 if not _ in self.pole: self.pole.append(_); break
 
-    def Num(self, txt, n1, n2): # Функция ввода и проверки цифры в заданном диапазоне
+    def num(self, txt, n1, n2): # Функция ввода и проверки цифры в заданном диапазоне
         _ = input(f'{txt}: ')
         if _.isnumeric() and n1 <= int(_) <= n2: return int(_)
-        else: print(f'\u001b[31mОшибка ввода! Необходимо ввести число от {n1} до {n2}!\u001b[0m\n'); return self.Num(txt, n1, n2)
+        else: print(f'\u001b[31mОшибка ввода! Необходимо ввести число от {n1} до {n2}!\u001b[0m\n'); return self.num(txt, n1, n2)
 
     def print_board(self): # Печатаем поле. Оно масштабируется в зависимости от размера поля
         print(f"\033[H\033[2JИГРА ПЯТНАШКИ!\n\n{'-'*(5 * self.dln + 1)}")
@@ -36,7 +36,7 @@ class Pyatak:
     def is_solved(self): # Проверка победы по сравнению поля с отсортированным
         y = self.pole.copy()
         y.remove(0)
-        if y == sorted(y): self.print_board(); print("Вы победили!"); exit()
+        if y == sorted(y): self.print_board(); print("\033[32mВЫ ПОБЕДИЛИ!!\033[0m"); exit()
 
     def move(self, x): # Функция хода
         y = self.pole.index(0) # Определяем позицию пустой клетки
@@ -58,8 +58,8 @@ class Pyatak:
     def play_game(self): # Функция игры
         while True:
             self.print_board()
-            _ = self.Num("\nПоменять местами пустую клетку с позицией:\n\t1. Сверху\n\t2. Снизу\n\t3. Слева\n\t4. Справа\n\t0. Завершение игры\nВаш выбор", 0, 4)
+            _ = self.num("\nПоменять местами пустую клетку с позицией:\n\t1. Сверху\n\t2. Снизу\n\t3. Слева\n\t4. Справа\n\t0. Завершение игры\nВаш выбор", 0, 4)
             if _ == 0: break
-            else: self.move(_)
+            self.move(_)
 
 if __name__ == "__main__": Pyatak().play_game()
