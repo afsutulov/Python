@@ -3,7 +3,7 @@
 from heroes import Hero
 from enemy import Enemy
 from log import Log
-import random
+import random, json
 
 class Game:
     @staticmethod
@@ -39,18 +39,35 @@ class Game:
 
         Game.battle(hero, enemy)
 
+
     def battle(hero, enemy):
+        def SaveToFile():
+            with open('save.txt', 'w') as f: f.write(f"{hero.lvl};{hero.name};{hero.last_name};{hero.lor};{hero.history};{hero.hp};{hero.old};{hero.spells};{hero.radius};{hero.weaknesses};{hero.gender};{hero.attr}\n")
+            print("\nДанные сохранены в файл: save.txt\n")
+
+        def LoadFromFile():
+            with open('save.txt', 'r') as f: _ = f.read().split(";")
+            hero.lvl, hero.name, hero.last_name, hero.lor, hero.history, hero.hp, hero.old, hero.spells, hero.radius, a, hero.gender, b = int(_[0]), _[1], _[2], _[3], _[4], int(_[5]), int(_[6]), _[7], int(_[8]), _[9], _[10], _[11]
+            hero.weaknesses = tuple(a.replace("(", "").replace(")", "").replace("'","").split(","))
+            hero.attr = json.loads(b.replace("\n","").replace("'","\""))
+            print("\nДанные загружены из файла: save.txt\n")
+
         log = Log(hero.name, enemy.name)
         hod = random.randint(0, 1) # Выбор кто первый ходит: 0 - герой, 1 - противник
         while True:
             if hero.hp <= 0: log.pobeda(enemy.name)
             if enemy.hp <= 0: log.pobeda(hero.name)
             if hod == 0: # Ход героя
-                udar = random.randint(0, hero.attr["power_damage"])
+                udar = random.randint(0, int(hero.attr["power_damage"]))
                 enemy.atack_to_damage(udar)
                 log.damage(hero.name, enemy.name, udar, enemy.hp)
             else: # Ход противника
-                udar = random.randint(0, enemy.attr["power_damage"])
+                udar = random.randint(0, int(enemy.attr["power_damage"]))
                 hero.atack_to_damage(udar)
                 log.damage(enemy.name, hero.name, udar, hero.hp)
+            match input("Действие: 1. Вывод данных Героя; 2. Загрузить данные героя; 3. Сохранить данные героя; Enter - продолжить. Действие? "):
+                case "1": print(f"\n{hero}\n")
+                case "2": LoadFromFile()
+                case "3": SaveToFile()
+
             hod = 1 - hod # Смена хода

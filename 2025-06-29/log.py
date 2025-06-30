@@ -10,7 +10,7 @@ class Log:
     def damage(self, name, name2, damage_power, hp):
         if hp <= 0: hp = 0
         txt = f"{name} нанес {damage_power} урона {name2}. Здоровье {name2}: {hp}"
-        print(txt)
+        print(f"\n{txt}")
         with open('log.txt', 'a') as f: f.write(f"{txt}\n")
 
     def pobeda(self, name):
