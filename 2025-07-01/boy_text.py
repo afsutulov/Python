@@ -2,7 +2,7 @@
 
 import random
 
-player = 0
+player = True
 p1 = [[' ' for _ in range(12)] for _ in range(12)] # Поле игрока (12x12)
 p2 = [[' ' for _ in range(12)] for _ in range(12)] # Поле противника (12x12)
 
@@ -62,27 +62,22 @@ def Log(txt):
     _ = input(txt)
     with open('log.txt', 'a') as f: f.write(f"{txt}\n")
 
-# Обрабатываем ход игрока
-def Igrok():
+# Обрабатываем ход
+def Hod(a):
     global player
     Flag = True
     while Flag:
-        x = Num("Введите значение хода по вертикали", 0, 9)
-        y = Num("Введите значение хода по горизонтали", 0, 9)
-        match p2[x + 1][y + 1]:
-            case "#": p2[x + 1][y + 1] = "X"; Log(f"Игрок: Ход {x}x{y}. Подбил цель!"); Flag = False
-            case " ": p2[x + 1][y + 1] = "o"; Log(f"Игрок: Ход {x}x{y}. Мимо!"); Flag = False; player = 1 - player
-
-# Делает ход противник
-def Protivnik():
-    global player
-    Flag = True
-    while Flag:
-        x = random.randint(0, 9)
-        y = random.randint(0, 9)
-        match p1[x + 1][y + 1]:
-            case "#": p1[x + 1][y + 1] = "X"; Log(f"Противник: Ход {x}x{y}. Подбил цель!"); Flag = False
-            case " ": p1[x + 1][y + 1] = "o"; Log(f"Противник: Ход {x}x{y}. Мимо!"); Flag = False; player = 1 - player
+        if player:
+            x = Num("Введите значение хода по вертикали", 0, 9)
+            y = Num("Введите значение хода по горизонтали", 0, 9)
+            txt = "Игрок"
+        else:
+            x = random.randint(0, 9)
+            y = random.randint(0, 9)
+            txt = "Противник"
+        match a[x + 1][y + 1]:
+            case "#": a[x + 1][y + 1] = "X"; Log(f"{txt}: Ход {x}x{y}. Подбил цель!"); Flag = False
+            case " ": a[x + 1][y + 1] = "o"; Log(f"{txt}: Ход {x}x{y}. Мимо!"); Flag = False; player = not player
 
 # Возвращаем поражение Игрока либо Противника
 def Porajenie(a):
@@ -104,8 +99,8 @@ def game():
     with open('log.txt', 'w') as f: f.write("Начинаем игру!")
     while True:
         Pole()
-        if player == 0: Igrok()
-        else: Protivnik()
+        if player: Hod(p2)
+        else: Hod(p1)
         Game_off()
 
 if __name__ == "__main__": game()
