@@ -11,7 +11,6 @@ class Game:
         self.root.title("Морской бой")
         icon = tk.PhotoImage(file=self.resource_path("boy.png"))
         root.iconphoto(True, icon)
-
         self.clr = ["#6198f6", "#ffffff", "#2d55e4", "#c7d8f7", "#dddddd", "#f8604a", "#0077ff", "#3cb371"]
         self.root.configure(bg=self.clr[0])
         # Запретить изменение размеров окна
