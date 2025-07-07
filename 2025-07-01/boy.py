@@ -33,7 +33,7 @@ class Game:
         self.button_frame.grid(row=2, column=0, columnspan=2, pady=10)
         self.start_button = tk.Button(self.button_frame, text="Начать игру", command=self.Start, relief="flat", fg=self.clr[2], bg=self.clr[3], activeforeground=self.clr[1], activebackground=self.clr[2], width=20)
         self.start_button.pack(side=tk.LEFT, padx=10)
-        self.exit_button = tk.Button(self.button_frame, text="Выход", command=root.destroy, relief="flat", fg=self.clr[2], bg=self.clr[3], activeforeground=self.clr[1], activebackground=self.clr[2], width=20)
+        self.exit_button = tk.Button(self.button_frame, text="Выход", command=self.root.destroy, relief="flat", fg=self.clr[2], bg=self.clr[3], activeforeground=self.clr[1], activebackground=self.clr[2], width=20)
         self.exit_button.pack(side=tk.LEFT, padx=10)
         # Лог игры под обоими полями
         self.log_text = scrolledtext.ScrolledText(root, width=90, height=10, state='normal', bg=self.clr[1])
@@ -145,7 +145,7 @@ class Game:
         if txt !="":
             self.Log(f"Победил {txt}! Игра окончена");
             if askyesno(title="Игра окончена!", message=f"Победил {txt}!\nСыграем еще?"): self.Start()
-            else: root.destroy()
+            else: self.root.destroy()
 
     # Игрок делает Ход (по кнопке). Далее обрабатываем ходы Противника
     def Hod(self, x, y):
