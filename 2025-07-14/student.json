@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Vasya",
+        "Roll No": "1001",
+        "Branch": "CSE"
+    },
+    {
+        "id": 2,
+        "name": "Petya",
+        "Roll No": "1002",
+        "Branch": "IT"
+    },
+    {
+        "id": 3,
+        "name": "Semen",
+        "Roll No": "1003",
+        "Branch": "ME"
+    },
+    {
+        "id": 4,
+        "name": "Vovka",
+        "Roll No": "1004",
+        "Branch": "Marketing"
+    }
+]
