@@ -14,17 +14,17 @@ class Document(ABC):
 
 class PdfDocument(Document):
     def open(self):
-        print("PDF-документ открыт.")
+        print("PDF-документ открыт")
 
     def close(self):
-        print("PDF-документ закрыт.")
+        print("PDF-документ закрыт")
 
 class HtmlDocument(Document):
     def open(self):
-        print("HTML-документ открыт.")
+        print("HTML-документ открыт")
 
     def close(self):
-        print("HTML-документ закрыт.")
+        print("HTML-документ закрыт")
 
 class DocumentFactory(ABC):
     @abstractmethod
@@ -62,19 +62,19 @@ class TextBox(ABC):
 
 class WindowsButton(Button):
     def render(self):
-        print("Отрисована кнопка в стиле Windows.")
+        print("Отрисована кнопка в стиле Windows")
 
 class WindowsTextBox(TextBox):
     def render(self):
-        print("Отрисовано текстовое поле в стиле Windows.")
+        print("Отрисовано текстовое поле в стиле Windows")
 
 class MacButton(Button):
     def render(self):
-        print("Отрисована кнопка в стиле macOS.")
+        print("Отрисована кнопка в стиле macOS")
 
 class MacTextBox(TextBox):
     def render(self):
-        print("Отрисовано текстовое поле в стиле macOS.")
+        print("Отрисовано текстовое поле в стиле macOS")
 
 class GUIFactory(ABC):
     @abstractmethod
@@ -204,7 +204,6 @@ class Circle(Shape):
     def info(self):
         base_info = super().info()
         return f"{base_info}, Радиус={self.radius}"
-
 
 #5. Object Pool
 import threading
