@@ -39,16 +39,6 @@ class HtmlDocumentFactory(DocumentFactory):
     def create_document(self):
         return HtmlDocument()
 
-def FactoryMethod():
-    pdf_factory = PdfDocumentFactory()
-    html_factory = HtmlDocumentFactory()
-    pdf_doc = pdf_factory.create_document()
-    html_doc = html_factory.create_document()
-    pdf_doc.open()
-    html_doc.open()
-    pdf_doc.close()
-    html_doc.close()
-
 # 2. Abstract Factory
 class Button(ABC):
     @abstractmethod
@@ -105,7 +95,7 @@ def AbstractFactory(factory):
     button.render()
     textbox.render()
 
-#3. Builder
+# 3. Builder
 class Pizza:
     def __init__(self):
         self.dough = None
@@ -172,7 +162,7 @@ class Waiter:
         builder.build_topping()
         return builder.get_pizza()
 
-#4. Prototype
+# 4. Prototype
 import copy
 class Shape:
     def __init__(self, x, y, color):
@@ -205,7 +195,7 @@ class Circle(Shape):
         base_info = super().info()
         return f"{base_info}, Радиус={self.radius}"
 
-#5. Object Pool
+# 5. Object Pool
 import threading
 
 class ReusableObject:
@@ -257,7 +247,14 @@ def worker(pool, num_iterations):
 
 if __name__ == "__main__":
     print("ЗАДАНИЕ 1: Factroy Methon")
-    FactoryMethod()
+    pdf_factory = PdfDocumentFactory()
+    html_factory = HtmlDocumentFactory()
+    pdf_doc = pdf_factory.create_document()
+    html_doc = html_factory.create_document()
+    pdf_doc.open()
+    html_doc.open()
+    pdf_doc.close()
+    html_doc.close()
 
     print("\nЗАДАНИЕ 2: Factroy Methon")
     windows_factory = WindowsGUIFactory()
