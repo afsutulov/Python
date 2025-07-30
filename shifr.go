@@ -8,7 +8,7 @@ import (
 func main() {
     key := map[int]int{ 0: 3, 1: 6, 2: 8, 3: 0, 4: 7, 5: 9, 6: 1, 7: 4, 8: 2, 9: 5 }
     args := os.Args
-    if len(args) != 2 { return }
+    if len(args) != 2 { print("Программа Шифр 1.0. Распространяется свободно. 2025 год\n\nshifr.py [шифруемый_файл]"); return }
     data, err := ioutil.ReadFile(args[1])
     if err != nil { return }
     for i := 0; i < len(data); i ++ {
