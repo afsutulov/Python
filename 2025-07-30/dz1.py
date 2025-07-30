@@ -52,19 +52,19 @@ class TextBox(ABC):
 
 class WindowsButton(Button):
     def render(self):
-        print("Отрисована кнопка в стиле Windows")
+        print("\tОтрисована кнопка в стиле Windows")
 
 class WindowsTextBox(TextBox):
     def render(self):
-        print("Отрисовано текстовое поле в стиле Windows")
+        print("\tОтрисовано текстовое поле в стиле Windows")
 
 class MacButton(Button):
     def render(self):
-        print("Отрисована кнопка в стиле macOS")
+        print("\tОтрисована кнопка в стиле macOS")
 
 class MacTextBox(TextBox):
     def render(self):
-        print("Отрисовано текстовое поле в стиле macOS")
+        print("\tОтрисовано текстовое поле в стиле macOS")
 
 class GUIFactory(ABC):
     @abstractmethod
