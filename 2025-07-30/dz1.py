@@ -174,7 +174,8 @@ class Shape:
         return copy.deepcopy(self)
 
     def info(self):
-        return f"{type(self).__name__}: X={self.x}, Y={self.y}, Цвет={self.color}"
+        if  type(self).__name__ == "Rectangle": return f"Прямоугольник: X={self.x}, Y={self.y}, Цвет={self.color}"
+        return f"Круг: X={self.x}, Y={self.y}, Цвет={self.color}"
 
 class Rectangle(Shape):
     def __init__(self, x, y, width, height, color):
