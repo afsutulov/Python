@@ -248,8 +248,8 @@ if __name__ == "__main__":
         delivery_address="г. Пермь, ул. Революции 13",
         customer_email="example@example.com"
     )
-    if result: print("Ваш заказ принят и обрабатывается.")
-    else: print("К сожалению, возникли проблемы с вашим заказом.")
+    if result: print("Ваш заказ принят и обрабатывается")
+    else: print("К сожалению, возникли проблемы с вашим заказом")
 
     print("\nЗАДАНИЕ 4: Декоратор (Decorator)")
     simple_coffee = SimpleCoffee()
