@@ -7,8 +7,9 @@ class CharacterStyle:
         self.size = size
         self.color = color
 
-    def __str__(self):
-        return f'Font: {self.font}, Size: {self.size}, Color: {self.color}'
+#    def __repr__(self):
+#    def __str__(self):
+#        return f'Font: {self.font}, Size: {self.size}, Color: {self.color}'
 
 class CharacterStyleFactory:
     _styles = {}
@@ -28,11 +29,8 @@ class TextEditor:
         self.text = text
         self.styles = [None] * len(text)
 
-    def __str__(self):
-        return self.text
-
-    def apply_style(self, position, style_key):
-        self.styles[position] = style_key
+    def apply_style(self, start, end, style_key):
+        for _ in range(start, min(end+1, len(self.text))): self.styles[_] = style_key
 
     def render(self):
         output = []
@@ -233,11 +231,10 @@ if __name__ == "__main__":
     factory = CharacterStyleFactory()
     editor = TextEditor()
     editor.set_text("Всем привет!")
-    print(f"Начальный текст: {editor}\nОтформатированный текст (задан шрифт каждой букве):")
-    for _ in range(len(editor.text)):
-        if _ % 2 == 0: style = factory.get_style("Arial", 18, "Blue")
-        else: style = factory.get_style("Times New Roman", 24, "Red")
-        editor.apply_style(_, style)
+    style_hello = factory.get_style("Arial", 18, "Blue")
+    editor.apply_style(0, 4, style_hello)
+    style_world = factory.get_style("Times New Roman", 24, "Red")
+    editor.apply_style(5, len(editor.text)-1, style_world)
     editor.render()
 
     print("\nЗАДАНИЕ 5: Фасад (Facade)")
