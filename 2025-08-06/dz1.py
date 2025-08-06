@@ -26,10 +26,10 @@ class TextEditor:
 
     def set_text(self, text):
         self.text = text
-        self.styles = [None]*len(text)
+        self.styles = [None] * len(text)
 
     def apply_style(self, start, end, style_key):
-        for i in range(start, min(end+1, len(self.text))): self.styles[i] = style_key
+        for _ in range(start, min(end+1, len(self.text))): self.styles[_] = style_key
 
     def render(self):
         output = []
@@ -180,11 +180,11 @@ class Renderer(ABC):
 
 class VectorRenderer(Renderer):
     def render_circle(self, x, y, radius):
-        print(f"Векторное изображение круга радиусом {radius} в координатах ({x},{y}).")
+        print(f"Векторное изображение круга радиусом {radius} в координатах ({x}, {y}).")
 
 class RasterRenderer(Renderer):
     def render_circle(self, x, y, radius):
-        print(f"Растровое изображение круга радиусом {radius} в координатах ({x},{y}).")
+        print(f"Растровое изображение круга радиусом {radius} в координатах ({x}, {y}).")
 
 class Shape(ABC):
     def __init__(self, renderer):
@@ -229,11 +229,11 @@ if __name__ == "__main__":
     print("ЗАДАНИЕ 6: Приспособленец (Flyweight)")
     factory = CharacterStyleFactory()
     editor = TextEditor()
-    editor.set_text("Привет мир!")
+    editor.set_text("Всем привет!")
     style_hello = factory.get_style("Arial", 18, "Blue")
-    editor.apply_style(0, 5, style_hello)
+    editor.apply_style(0, 4, style_hello)
     style_world = factory.get_style("Times New Roman", 24, "Red")
-    editor.apply_style(6, len(editor.text)-1, style_world)
+    editor.apply_style(5, len(editor.text)-1, style_world)
     editor.render()
 
     print("\nЗАДАНИЕ 5: Фасад (Facade)")
